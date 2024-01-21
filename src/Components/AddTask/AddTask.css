@@ -1,0 +1,12 @@
+form input{
+    height: 50px;
+    border-radius: 10px;
+    border-color: rgb(167, 165, 165);
+    padding-left: 15px;
+    font-size: 20px;
+    
+}
+form input, placeholder, textarea{
+     color: gray;
+}
+
