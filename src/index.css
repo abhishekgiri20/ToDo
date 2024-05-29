@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.active-btn {
+  background-color: #198754 !important;
+  color: white !important;
+  border-color: rgb(110, 104, 104) !important;
+  font-weight: 600 !important;
+}

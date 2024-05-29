@@ -14,7 +14,7 @@ interface PaginationReq {
 }
 
 export default ({ count, data, page, limit,loading, onPageChange }: PaginationReq) => {
-
+ console.log(page,"page")
   if (count <= limit) {
     return <Fragment></Fragment>
   } else {

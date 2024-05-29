@@ -32,6 +32,8 @@ const Home = () => {
   const onChangePagination = (newVal: Number) => {
     console.log(newVal,"newVal")
     setpage(Number(newVal))
+    navigate(`${location.pathname}?page=${newVal}`);
+   
 }
   const fetchCardData = async () => {
     setLoading(true)
