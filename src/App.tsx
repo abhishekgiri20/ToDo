@@ -15,7 +15,6 @@ function App() {
     <>
       <Header />
       <Routes>
-        {/* Redirect root path to /inprogress */}
         <Route path="/" element={<Navigate to="/inprogress" />} />
         
         <Route path="/inprogress" element={<Home />} />
