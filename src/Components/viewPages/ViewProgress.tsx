@@ -1,29 +1,34 @@
 import React from "react";
-import todoApi from "./todoApi";
+import todoApi from "../../todoApi";
 import { useLocation, useNavigate } from "react-router-dom";
+import moment from "moment";
+
 const Viewpage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  
   const receivedData = location.state.mydata;
   const receive = location.state.type;
 
-  
-  console.log(receive, "type1234");
-  console.log(receivedData, "show data ");
 
   const handleMarkDone = async () => {
+    debugger
     try {
-      const response = await todoApi.markDoneById(receivedData.id);
+      const response = await todoApi.markDoneById(receivedData._id);
       console.log(response, "markdata");
+      navigate("/inprogress")
     } catch (error) {
       console.log("error", error);
     }
   };
 
+
+
+
   const handleEdit = async () => {
+    debugger
     try {
-      const response = await todoApi.viewDataById(receivedData?.id);
+      const response = await todoApi.viewDataById(receivedData?._id);
       console.log("edditdata", response);
       let data = response;
       navigate("/editTask", { state: { myData: data } });
@@ -32,10 +37,16 @@ const Viewpage = () => {
     }
   };
 
+
+
+
   const handleDeleteData = async () => {
+    debugger
+    console.log(receivedData?.id)
     try {
-      const response = await todoApi.deleteDataById(receivedData?.id);
+      const response = await todoApi.deleteDataById(receivedData?._id);
       console.log("delete", response);
+      navigate("/inprogress")
     } catch (error) {
       console.log("error", error);
     }
@@ -44,52 +55,53 @@ const Viewpage = () => {
   return (
     <>
       <section className="mt-5 ">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="page-heading d-flex justify-content-between align-items-center">
-                <h2 className="m-0">{receivedData.task_name}</h2>
-                <div className="header-btns d-flex gap-3 ">
-                  <button
-                    className="btn btn-outline-warning px-4 py-2 fs-4"
-                    onClick={handleMarkDone}
-                  >
-                    Mark Done
-                  </button>
-                  <button
-                    className="btn btn-warning px-4 py-2 fs-4 text-white"
-                    onClick={handleEdit}
-                  >
-                    <span className="me-3">
-                      <i className="bi bi-pencil-fill"></i>
-                    </span>
-                    Edit Task
-                  </button>
-                  <button
-                    className="btn btn-danger fs-4 px-4 py-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                  >
-                    <span className="me-3">
-                      <i className="bi bi-trash3-fill"></i>
-                    </span>
-                    Delete
-                  </button>
+    
+       
+            <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="page-heading d-flex justify-content-between align-items-center">
+                  <h2 className="m-0">{receivedData.task_name}</h2>
+                  <div className="header-btns d-flex gap-3 ">
+                    <button
+                      className="btn btn-outline-warning px-4 py-2 fs-4"
+                      onClick={handleMarkDone}
+                    >
+                      Mark Done
+                    </button>
+                    <button
+                      className="btn btn-warning px-4 py-2 fs-4 text-white"
+                      onClick={handleEdit}
+                    >
+                      <span className="me-3">
+                        <i className="bi bi-pencil-fill"></i>
+                      </span>
+                      Edit Task
+                    </button>
+                    <button
+                      className="btn btn-danger fs-4 px-4 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      <span className="me-3">
+                        <i className="bi bi-trash3-fill"></i>
+                      </span>
+                      Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div className="date mt-3">
-                <p className="m-0 text-bold fs-5">Task Date&#58; 21/01/23</p>
-              </div>
-              <div className="text mt-5">
-                <p className="fs-4 text-secondary">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Corrupti, blanditiis deserunt omnis nemo ab hic accusantium
-                  debitis quos placeat quae.
-                </p>
+                <div className="date mt-3">
+                  <p className="m-0 text-bold fs-5">Task Date&#58; {moment(receivedData.date).format("DD-MM-YYYY")}</p>
+                </div>
+                <div className="text mt-5">
+                  <p className="fs-4 text-secondary">
+                      {receivedData.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+         
       </section>
 
 

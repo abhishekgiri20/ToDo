@@ -1,23 +1,29 @@
 import request from "superagent";
-const api_url = "http://139.59.47.49:4004/api/";
 
-const getAllData = async (status:any) => {
+
+
+const api_url = "http://139.59.47.49:4000/";
+
+
+// getData api
+
+const getAllData = async (status:any,pagination:number,limit:number) => {
   try {
     const response = await request.get(
-      `${api_url}tasks?limit=6&start=1&status=${status}`
+      `${api_url}task?get=${status}&pagination=${pagination}&limit=${limit}`
     );
     return response.body;
   } catch (error) {
     console.log("Error", error);
-  }
+  } 
 };
 
 
 
-
+//view data api
 const viewDataById = async (id:any) => {
   try {
-    const response = await request.get(`${api_url}task/{id}?id=${id}`);
+    const response = await request.get(`${api_url}task/${id}`);
     return response.body;
   } catch (error) {
     console.log("error",error);
@@ -25,8 +31,8 @@ const viewDataById = async (id:any) => {
 };
 
 
-
-const editDataById = async (data:any) => {
+//editdata api
+const editDataById = async (data:object) => {
   debugger
   try {
     const response = await request.put(`${api_url}task`).send(data);
@@ -37,8 +43,9 @@ const editDataById = async (data:any) => {
 };
 
 
-
+//mark done api
 const markDoneById = async(id:number) =>{
+ 
   try {
     const response = await request.put(`${api_url}task/complete/${id}`);
     return response.body;
@@ -48,10 +55,11 @@ const markDoneById = async(id:number) =>{
 }
 
 
-
-const recoverDataById = async (_id: any) => {
+//recover
+const recoverDataById = async(id:any) => {
+ 
   try {
-      const response = await request.put(`${api_url}task/recover/${_id}`);
+    const response = await request.put(`${api_url}task/recover/${id}`);
       return response.body;
   } catch (error) {
       console.log('PUT Request Error:', error);
@@ -59,10 +67,10 @@ const recoverDataById = async (_id: any) => {
 };
 
 
-
-const addTask = async (data: object) => {
+//recover
+const addTask = async (postData: object) => {
   try {
-      const response = await request.post(`${api_url}task`).send(data);
+      const response = await request.post(`${api_url}task`).send(postData);
       return response.body;
   } catch (error) {
       console.log("Error in adding task",error)
@@ -72,13 +80,9 @@ const addTask = async (data: object) => {
 
 // delete data
 const deleteDataById = async (id: number) => {
-  const deletedData = {
-    id:id,
-    status: 0,
-
-  }
+ debugger
   try {
-      const response = await request.post(`${api_url}task/status`).send(deletedData);
+      const response = await request.delete(`${api_url}task/${id}`);
       return response.body;
   } catch (error) {
       console.log("Error in deleting",error);
