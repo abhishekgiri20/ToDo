@@ -242,7 +242,7 @@ setFilterType("");
                          (filterType === "" || filterType === "ALL" ) &&
                       <>
                        <h4>All Tasks</h4>
-                      {state?.data?.map((val: any) => {
+                      {(state?.data?.length)?state?.data?.map((val: any) => {
                         return (
                           <div className="col-4" key={val._id}>
                             <Card
@@ -254,7 +254,7 @@ setFilterType("");
                             />
                           </div>
                         );
-                      })}</>
+                      }):<Empty/>}</>
                     }
                     
                   </div>
@@ -301,7 +301,7 @@ setFilterType("");
                       (filterType === "" || filterType === "ALL" ) &&
                       <>
                        <h4>All Tasks</h4>
-                      {state?.data?.map((val: any) => {
+                      {(state?.data?.length)?state?.data?.map((val: any) => {
                         return (
                           <div className="col-4" key={val._id}>
                             <Card
@@ -313,7 +313,7 @@ setFilterType("");
                             />
                           </div>
                         );
-                      })}</>
+                      }):<Empty/>}</>
                     }
 
                   </div>
@@ -359,7 +359,7 @@ setFilterType("");
                     (filterType === "" || filterType === "ALL" ) &&
                     <>
                      <h4>All Tasks</h4>
-                    {state?.data?.map((val: any) => {
+                    {(state?.data?.length)?state?.data?.map((val: any) => {
                       return (
                         <div className="col-4" key={val._id}>
                           <Card
@@ -371,7 +371,7 @@ setFilterType("");
                           />
                         </div>
                       );
-                    })}</>
+                    }):<Empty/>}</>
                   }
                 </div>
                 )}
