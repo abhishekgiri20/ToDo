@@ -197,20 +197,19 @@ setFilterType("");
                    </a>
               </Dropdown>
               </div>
-              <Tabs className="task-bar" activeKey={activeKey} defaultActiveKey="1" items={items1} onChange={onChange} />
 
-            
+              <Tabs  className="task-bar" activeKey={activeKey} defaultActiveKey="1" items={items1} onChange={onChange} />
               <Spin spinning={loading}>
-              <div className=" col-12  mt-2">
+              <div className="col-12  mt-2">
                 {location.pathname === "/inprogress" && (
-                  <div className="row ">
+                  <div className="row  ">
                     {
                       (filterType === "TODAY")?
                       <>
                        <h4>Today Tasks</h4>
                       {(state?.data?.filter((item:any)=>item?.date >= startOfDay && item.date <= endOfDay).length)? state?.data?.filter((item:any)=>item?.date >= startOfDay && item.date <= endOfDay).map((val: any) => {
                         return (
-                          <div className="col-4" key={val._id}>
+                          <div className="col-12 col-sm-4" key={val._id}>
                             <Card
                               task_name={val?.task_name}
                               id={val._id}
@@ -227,7 +226,7 @@ setFilterType("");
                          <h4>Tomorrow Tasks</h4>
                         {(state?.data?.filter((item:any)=>item?.date >= tomorrowStart && item.date <= tomorrowEnd).length)?state?.data?.filter((item:any)=>item?.date >= tomorrowStart && item.date <= tomorrowEnd).map((val: any) => {
                           return (
-                            <div className="col-4" key={val._id}>
+                            <div className="col-12 col-sm-4" key={val._id}>
                               <Card
                                 task_name={val?.task_name}
                                 id={val._id}
@@ -244,7 +243,7 @@ setFilterType("");
                        <h4>All Tasks</h4>
                       {(state?.data?.length)?state?.data?.map((val: any) => {
                         return (
-                          <div className="col-4" key={val._id}>
+                          <div className="col-12 col-sm-4" key={val._id}>
                             <Card
                               task_name={val?.task_name}
                               id={val._id}
@@ -269,7 +268,7 @@ setFilterType("");
                        <h4>Today Tasks</h4> 
                       {(state?.data?.filter((item:any)=>item?.date >= startOfDay && item.date <= endOfDay).length)?state?.data?.filter((item:any)=>item?.date >= startOfDay && item.date <= endOfDay).map((val: any) => {
                         return (
-                          <div className="col-4" key={val._id}>
+                          <div className="col-12 col-sm-4" key={val._id}>
                             <Card
                               task_name={val?.task_name}
                               id={val._id}
@@ -286,7 +285,7 @@ setFilterType("");
                        <h4>Tomorrow Tasks</h4>
                       {(state?.data?.filter((item:any)=>item?.date >= tomorrowStart && item.date <= tomorrowEnd).length)?state?.data?.filter((item:any)=>item?.date >= tomorrowStart && item.date <= tomorrowEnd).map((val: any) => {
                         return (
-                          <div className="col-4" key={val._id}>
+                          <div className="col-12 col-sm-4" key={val._id}>
                             <Card
                               task_name={val?.task_name}
                               id={val._id}
@@ -303,7 +302,7 @@ setFilterType("");
                        <h4>All Tasks</h4>
                       {(state?.data?.length)?state?.data?.map((val: any) => {
                         return (
-                          <div className="col-4" key={val._id}>
+                          <div className="col-12 col-sm-4" key={val._id}>
                             <Card
                               task_name={val?.task_name}
                               id={val._id}
@@ -328,7 +327,7 @@ setFilterType("");
                      <h4>Today Tasks</h4>
                     {(state?.data?.filter((item:any)=>item?.date >= startOfDay && item.date <= endOfDay).length)?state?.data?.filter((item:any)=>item?.date >= startOfDay && item.date <= endOfDay).map((val: any) => {
                       return (
-                        <div className="col-4" key={val._id}>
+                        <div className="col-12 col-sm-4" key={val._id}>
                           <Card
                             task_name={val?.task_name}
                             id={val._id}
@@ -344,7 +343,7 @@ setFilterType("");
                      <h4>Tomorrow Tasks</h4>
                     {(state?.data?.filter((item:any)=>item?.date >= tomorrowStart && item.date <= tomorrowEnd).length)?state?.data?.filter((item:any)=>item?.date >= tomorrowStart && item.date <= tomorrowEnd).map((val: any) => {
                       return (
-                        <div className="col-4" key={val._id}>
+                        <div className="col-12 col-sm-4" key={val._id}>
                           <Card
                             task_name={val?.task_name}
                             id={val._id}
@@ -361,7 +360,7 @@ setFilterType("");
                      <h4>All Tasks</h4>
                     {(state?.data?.length)?state?.data?.map((val: any) => {
                       return (
-                        <div className="col-4" key={val._id}>
+                        <div className="col-12 col-sm-4" key={val._id}>
                           <Card
                             task_name={val?.task_name}
                             id={val._id}

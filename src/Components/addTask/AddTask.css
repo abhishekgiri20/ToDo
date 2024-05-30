@@ -14,6 +14,9 @@ form input, placeholder, textarea{
     .form-conatiner{
         width: 100% !important;
     } 
+    .task-date{ 
+        width: 100%;
+    }
     .task-heading{
         text-align: center;
         font-size: 35px !important  ;

@@ -4,11 +4,12 @@ import todoApi from "../../todoApi";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button, Grid } from "antd";
 
 const Card = ({ task_name, id, description, fetchData }: any) => {
   const location = useLocation();
   const navigate = useNavigate();
-
+  const screens = Grid.useBreakpoint()
   const viewCardData = async (id: any) => {
     try {
       if (location.pathname === "/inprogress") {
@@ -112,14 +113,16 @@ const Card = ({ task_name, id, description, fetchData }: any) => {
         <div className="div">
           {location.pathname === "/inprogress" && (
             <div className="task-card-footer d-flex justify-content-between">
-              <div className="mark-btn">
-                <button
-                  type="button"
-                  className="btn btn-outline-success "
+              <div className="mark-btn ">
+                <Button
+                  type="primary"
+                  ghost
+                  size={screens.sm? "large":"small"}
+                  // className="btn btn-outline-success  "
                   onClick={() => markData(id)}
                 >
                   Mark Done
-                </button>
+                </Button>
               </div>
               <div className="btn-icons d-flex gap-3 align-items-center">
                 <div className="button" onClick={() => viewCardData(id)}>

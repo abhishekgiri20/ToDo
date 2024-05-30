@@ -103,7 +103,7 @@ const AddTask = () => {
                   id="date"
                   value={date}
                   placeholder="Select date"
-                  className="rounded-5 px-2"
+                  className="rounded-5 px-2 w-100"
                   onChange={handleTaskDate}
                  
                 />

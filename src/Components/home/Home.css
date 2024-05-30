@@ -59,10 +59,18 @@ section {
     
   } 
   .ant-tabs-nav-wrap .ant-tabs-nav-list{
-    overflow-x: scroll  !important;
+    overflow-x: auto  !important;
     width: 100% !important;
   }
+ 
   .ant-dropdown-trigger {
     text-align: center !important;
+  }
+  .task-bar{
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+  .single-task-card {
+    width: 100% !important;
   }
 }
