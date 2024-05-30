@@ -52,3 +52,14 @@ section {
   border: 2px solid rgb(11, 10, 10);
   
 }
+@media screen and (max-width:576px){
+  .task-header{
+    flex-direction: column !important;
+    gap: 20px !important;
+    
+  } 
+  .ant-tabs-nav-wrap{
+    overflow-x: scroll  !important;
+    /* width: 100% !important; */
+  }
+}
