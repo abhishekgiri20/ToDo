@@ -10,3 +10,12 @@ form input, placeholder, textarea{
      color: gray;
 }
 
+@media screen and (max-width:576px){
+    .form-conatiner{
+        width: 100% !important;
+    } 
+    .task-heading{
+        text-align: center;
+        font-size: 35px !important  ;
+    }
+}

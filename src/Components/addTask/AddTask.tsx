@@ -72,7 +72,7 @@ const AddTask = () => {
           <div className="form-conatiner p-3 col-md-12 h-100  w-50">
             <form onSubmit={formDataHandler}>
               <div className="form-heading mb-5">
-                <h1 className="text-warning">Add New Task</h1>
+                <h1 className="task-heading text-warning">Add New Task</h1>
               </div>
 
               <div className="task-name   d-flex flex-column ">

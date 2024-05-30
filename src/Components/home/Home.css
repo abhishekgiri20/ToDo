@@ -58,8 +58,11 @@ section {
     gap: 20px !important;
     
   } 
-  .ant-tabs-nav-wrap{
+  .ant-tabs-nav-wrap .ant-tabs-nav-list{
     overflow-x: scroll  !important;
-    /* width: 100% !important; */
+    width: 100% !important;
+  }
+  .ant-dropdown-trigger {
+    text-align: center !important;
   }
 }
